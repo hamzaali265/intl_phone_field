@@ -203,6 +203,7 @@ class IntlPhoneField extends StatefulWidget {
 
   /// The color of the cursor.
   final Color? cursorColor;
+  final Color? countryCodeColor;
 
   /// How tall the cursor will be.
   final double? cursorHeight;
@@ -236,7 +237,6 @@ class IntlPhoneField extends StatefulWidget {
   ///
   /// If unset, defaults to [EdgeInsets.zero].
   final EdgeInsets flagsButtonMargin;
-  final Color countryCodeColor;
   final double fieldGap;
 
   IntlPhoneField({
@@ -283,8 +283,8 @@ class IntlPhoneField extends StatefulWidget {
     this.showCursor = true,
     this.pickerDialogStyle,
     this.flagsButtonMargin = EdgeInsets.zero,
-    this.countryCodeColor = Colors.black,
     this.fieldGap = 1,
+    this.countryCodeColor,
   }) : super(key: key);
 
   @override
@@ -471,7 +471,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
                   Text(
                     _selectedCountry.code.toUpperCase(),
                     style: TextStyle(
-                        color: widget.countryCodeColor,
+                        color: widget.countryCodeColor ?? Colors.black,
                         fontWeight: FontWeight.w400,
                         fontSize: 20),
                   ),
